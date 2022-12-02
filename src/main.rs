@@ -48,7 +48,7 @@ fn main() {
                 match n { // add each day as a match, wanted to use macros but couldn't figure it out so write out each day
                     1 => {
                         
-                        let (part1, part2) = day1::run(input);
+                        let (part1, part2) = day1::run1(input);
                         println!("part1: {}", part1);
                         println!("part2: {}", part2);
                     },
@@ -60,7 +60,6 @@ fn main() {
         }
         Err(_) => {
             invalid_input(dayarg);
-            return;
         }
     }
 
