@@ -25,6 +25,10 @@ fn print_output(output: (i128, i128)) {
 fn main() {
     let args: Vec<String> = env::args().collect();
     //dbg!(args);
+    if args.len() < 2 {
+        println!("Usage: cargo run -- day4");
+        return;
+    }
     let dayarg: &String = &args[1];
 
     // check if input is a valid day by comparing the first 3 chars to "day"
@@ -45,7 +49,7 @@ fn main() {
             } else {
                 // run the day
                 let input = read_input(&n);
-                //println!("input: {}", input);
+                println!("input: {}", input);
                 //println!("day: {}", n);
                 match n { // add each day as a match, wanted to use macros but couldn't figure it out so write out each day
                     1 => {
