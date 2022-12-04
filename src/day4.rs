@@ -1,6 +1,6 @@
 use core::ops::Range;
 
-// template this function for T
+// template this function, takes any range that has a type that implements the Ord trait
 fn range_has_range<T:PartialOrd>(large_range: &Range<T>, small_range: &Range<T>) -> bool {
     large_range.start <= small_range.start && large_range.end >= small_range.end
 }
@@ -12,9 +12,6 @@ fn range_overlaps_range<T:PartialOrd>(range1: &Range<T>, range2: &Range<T>) -> b
 pub fn run(input: String) -> (i128, i128) {
     let mut part1:i128 = 0;
     let mut part2:i128 = 0;
-
-    let test_case = 2..5;
-    let test_case2 = 1..3;
 
     for line in input.lines() {
         // println!("line: {}", line);
@@ -39,7 +36,6 @@ pub fn run(input: String) -> (i128, i128) {
         if range_overlaps_range(&range1, &range2) {
             part2 += 1;
         }
-        println!("overlaps {}", range_overlaps_range(&test_case2, &test_case));
     }
     (part1, part2)
 }
