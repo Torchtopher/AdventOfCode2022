@@ -2,9 +2,14 @@ use std::env;
 use std::fs;
 use std::i128;
 use std::path;
-mod day1; 
-mod day2; 
+mod day1;
+mod day2;
 mod day3;
+mod day4;
+use crate::day1 as d1;
+use crate::day2 as d2;
+use crate::day3 as d3;
+use crate::day4 as d4;
 
 fn invalid_input(input: &String) {
     println!("Invalid argument \"{input}\", should be a day like day4");
@@ -13,7 +18,8 @@ fn invalid_input(input: &String) {
 fn read_input(day: &i32) -> String {
     // make path dynamic based on day
     let path = path::Path::new("inputs").join(format!("day{}.txt", day));
-    println!("Reading input from {:?}", path);
+    // get crate root path
+    
     fs::read_to_string(path).expect("Unable to read file")
 }
 
@@ -53,13 +59,16 @@ fn main() {
                 //println!("day: {}", n);
                 match n { // add each day as a match, wanted to use macros but couldn't figure it out so write out each day
                     1 => {
-                        print_output(day1::run(input));
+                        print_output(d1::run(input));
                     },
                     2 => {
-                        print_output(day2::run(input))
+                        print_output(d2::run(input))
                     },
                     3 => {
-                        print_output(day3::run(input))
+                        print_output(d3::run(input))
+                    },
+                    4 => {
+                        print_output(d4::run(input))
                     },
                     _ => {
                         println!("Day {} not implemented yet", n);
