@@ -20,12 +20,13 @@ impl StackYard {
             crane: version,
         }
     }
-    fn add_pile(&mut self, pile: Vec<char>) {
+    // add a pile to the stack yard, should be called in the order of the piles
+    fn add_pile(&mut self, pile: Vec<char>) {  
         let stack_len = self.piles.len() as u32 + 1;
         self.piles.insert(stack_len, pile);
     }
     // implements the crane in the problem, take the pile to move, the depth, and then the pile to move to
-    fn move_pile(&mut self, from: u32, to: u32, depth : u32) { 
+    fn move_pile(&mut self, from: u32, to: u32, depth: u32) { 
         let mut to_remove: u32 = 0;
         { // scope to have the mutable borrow of self.piles end before the remove
             let pile_depth = self.piles.get(&from).unwrap().len() as u32; // how deep is the pile we're moving

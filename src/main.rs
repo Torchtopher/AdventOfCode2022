@@ -30,13 +30,12 @@ fn print_output<T:std::fmt::Display>(output: (T, T)) {
     println!("Part 2: {}", output.1);
 }
 
-
 fn main() {
     let args: Vec<String> = env::args().collect();
     //dbg!(args);
     if args.len() < 2 {
-        println!("Usage: cargo run -- day4");
-        return;
+        println!("You did not give a day\nUsage: cargo run -- day4");
+        std::process::exit(0);
     }
     let dayarg: &String = &args[1];
 
