@@ -58,8 +58,8 @@ fn main() {
             } else {
                 // run the day
                 let input = read_input(&n);
-                println!("input: {}", input);
-                //println!("day: {}", n);
+                // println!("input: {}", input);
+                println!("day: {}", n);
                 match n { // add each day as a match, wanted to use macros but couldn't figure it out so write out each day
                     1 => {
                         print_output(d1::run(input));
