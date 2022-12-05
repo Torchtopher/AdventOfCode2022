@@ -1,15 +1,16 @@
 use std::env;
 use std::fs;
-use std::i128;
 use std::path;
 mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 use crate::day1 as d1;
 use crate::day2 as d2;
 use crate::day3 as d3;
 use crate::day4 as d4;
+use crate::day5 as d5;
 
 fn invalid_input(input: &String) {
     println!("Invalid argument \"{input}\", should be a day like day4");
@@ -23,10 +24,12 @@ fn read_input(day: &i32) -> String {
     fs::read_to_string(path).expect("Unable to read file")
 }
 
-fn print_output(output: (i128, i128)) {
+// type must implement std::fmt::Display
+fn print_output<T:std::fmt::Display>(output: (T, T)) {
     println!("Part 1: {}", output.0);
     println!("Part 2: {}", output.1);
 }
+
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -69,6 +72,9 @@ fn main() {
                     },
                     4 => {
                         print_output(d4::run(input))
+                    },
+                    5 => {
+                        print_output(d5::run(input))
                     },
                     _ => {
                         println!("Day {} not implemented yet", n);

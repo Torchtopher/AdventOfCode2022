@@ -33,8 +33,7 @@ pub fn run(input: String) -> (i128, i128) {
     let part1 = -heap.iter().last().unwrap();
     // add up the numbers in the heap and take the absolute value
     let part2: i128 =  heap.iter().map(|x| x.abs()).sum();
-    return (part1, part2); 
-
+    (part1, part2) 
 }
 
     
@@ -90,5 +89,5 @@ pub fn run_old(input: String) -> (i128, i128) {
     let part1 = *heap.peek().unwrap(); // probably cheap to clone a primitive type
     // add up the numbers in the heap
     let part2: i128 = heap.iter().sum();
-    return (part1, part2);  
+    (part1, part2)
 }
