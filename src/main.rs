@@ -6,11 +6,15 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
+mod day7;
 use crate::day1 as d1;
 use crate::day2 as d2;
 use crate::day3 as d3;
 use crate::day4 as d4;
 use crate::day5 as d5;
+use crate::day6 as d6;
+use crate::day7 as d7;
 
 fn invalid_input(input: &String) {
     println!("Invalid argument \"{input}\", should be a day like day4");
@@ -21,7 +25,11 @@ fn read_input(day: &i32) -> String {
     let path = path::Path::new("inputs").join(format!("day{}.txt", day));
     // get crate root path
     
-    fs::read_to_string(path).expect("Unable to read file")
+    let data = fs::read_to_string(path);
+    match data {
+        Ok(data) => data,
+        Err(e) => panic!("File does not exist: {}", e),
+    }
 }
 
 // type must implement std::fmt::Display
@@ -75,6 +83,12 @@ fn main() {
                     5 => {
                         print_output(d5::run(input))
                     },
+                    6 => {
+                        print_output(d6::run(input))
+                    },
+                    7 => {
+                        print_output(d7::run(input))
+                    }
                     _ => {
                         println!("Day {} not implemented yet", n);
                     }
