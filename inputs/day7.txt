@@ -45,7 +45,7 @@ $ cd czvcf
 $ ls
 158882 lhfsc.lrh
 266626 ntsrpn
-$ cd ..
+$ cd ..1
 $ cd ..
 $ cd jnzwf
 $ ls

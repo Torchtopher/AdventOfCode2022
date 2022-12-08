@@ -153,10 +153,8 @@ impl FileSystem {
             },
             None => {
                 dir_2_loop = &self.root;
-                let total_size = dir_2_loop.size;
             }
         }
-        let delta_size = 700_000_000;
 
         for (name, dir) in &dir_2_loop.subdirs {
             //println!("{}: {}", name, dir.size);
