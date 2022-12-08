@@ -157,45 +157,33 @@ pub fn run(input: String) -> (i128, i128) {
                     if col <= &ndarray[[ii, jj - count]] {
                         //println!("L Col {} is less than or eq {}", col, ndarray[[ii, jj - count]]);
                         l = false;
-    
-                        score.left = count as i32;
                     }
-                    else {
-                        score.left += 1;
-                    }
+                    score.left += 1;
                 }
                 if !(jj + count > num_cols - 1) && r {
                     found = true;
                     if col <= &ndarray[[ii, jj + count]] {
                         //println!("R Col {} is less than or eq {}", col, ndarray[[ii, jj + count]]);
                         r = false;
-                        score.right = count as i32;
                     }
-                    else {
-                        score.right += 1;
-                    }
+                    score.right += 1;
                 }
                 if !(ii as i16 - (count as i16) < 0) && u { 
                     found = true;
                     if col <= &ndarray[[ii - count, jj]] {
                         //println!("U Col {} is less than or eq {}", col, ndarray[[ii - count, jj]]);
                         u = false;
-                        score.up = count as i32;
                     }
-                    else {
-                        score.up += 1;
-                    }
+                    score.up += 1;
+                    
                 }
                 if !(ii + count > num_rows - 1) && d {
                     found = true;
                     if col <= &ndarray[[ii + count, jj]] {
                         //println!("D Col {} is less than or equal to {}", col, ndarray[[ii + count, jj]]);
                         d = false;
-                        score.down = count as i32;
                     }
-                    else {
-                        score.down += 1;
-                    }
+                    score.down += 1;
                 }
                 // print center and all surrounding elements
                 //println!("Center: {}, {}, {}, {}, {}", ndarray[[ii, jj]], ndarray[[ii, jj - count]], ndarray[[ii, jj + count]], ndarray[[ii - count, jj]], ndarray[[ii + count, jj]]);
