@@ -31,8 +31,9 @@ impl Directory {
     fn add_file(&mut self, name: String, size: i128) {
         // handle size not here
         // self.size += size;
-        // check if file already exists
 
+        // should check if the file already exists incase we are seeing the same directory
+        // I checked in python though, the same file is not listed twice, at least in my input
         self.files.insert(name, size);
     }
 }
