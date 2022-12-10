@@ -52,12 +52,12 @@ pub fn run(input: String) -> (i128, i128) {
         let player = line[2..3].to_string();
         let opponent = opponent.as_str();
         let player = player.as_str();
-        println!("opponent: {}", opponent);
-        println!("player: {}", player);
+        //println!("opponent: {}", opponent);
+        //println!("player: {}", player);
 
         match player {
             ROCK => {
-                println!("player rock");
+                //println!("player rock");
                 score += ROCK_SCORE;
                 match opponent {
                     ROCK_OPP => score += TIE_SCORE,
@@ -67,7 +67,7 @@ pub fn run(input: String) -> (i128, i128) {
                 }
             }
             PAPER => {
-                println!("player paper");
+                //println!("player paper");
                 score += PAPER_SCORE;
                 match opponent {
                     ROCK_OPP => score += WIN_SCORE,
@@ -77,7 +77,7 @@ pub fn run(input: String) -> (i128, i128) {
                 }
             }
             SCISSORS => {
-                println!("player scissors");
+                //println!("player scissors");
                 score += SCISSORS_SCORE;
                 match opponent {
                     ROCK_OPP => score += LOSE_SCORE,
@@ -98,12 +98,12 @@ pub fn run(input: String) -> (i128, i128) {
         let result = line[2..3].to_string();
         let opponent = opponent.as_str();
         let result = result.as_str();
-        println!("opponent: {}", opponent);
-        println!("player: {}", result);
+        //println!("opponent: {}", opponent);
+        //println!("player: {}", result);
         match result {
             LOSE => {
                 scorept2 += 0;
-                println!("player lost");
+                //println!("player lost");
                 match opponent { // add score based on what is needed to lose
                     ROCK_OPP => scorept2 += SCISSORS_SCORE,
                     PAPER_OPP => scorept2 += ROCK_SCORE,
@@ -113,7 +113,7 @@ pub fn run(input: String) -> (i128, i128) {
             }
             TIE => {
                 scorept2 += 3;
-                println!("player tied");
+                //println!("player tied");
                 match opponent {
                     ROCK_OPP => scorept2 += ROCK_SCORE,
                     PAPER_OPP => scorept2 += PAPER_SCORE,
@@ -123,7 +123,7 @@ pub fn run(input: String) -> (i128, i128) {
             }
             WIN => {
                 scorept2 += 6;
-                println!("player won");
+                //println!("player won");
                 match opponent {
                     ROCK_OPP => scorept2 += PAPER_SCORE,
                     PAPER_OPP => scorept2 += SCISSORS_SCORE,

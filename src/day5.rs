@@ -30,7 +30,7 @@ impl StackYard {
 
     pub fn step(&mut self) {
         let line = self.instructions.pop().unwrap();
-        println!("{}", line);
+        //println!("{}", line);
         let (from, to, depth) = self.parse_instructions(&line);
         self.move_pile(from, to, depth);
     }
@@ -101,13 +101,13 @@ pub fn parse_input(input: String, version: CraneVersion) -> StackYard {
     for _ in 0..yard_lenght { // find how many piles and make a vector of vectors for them
         piles.push(Vec::new());
     }
-    println!("piles: {:?}", piles);
+    //println!("piles: {:?}", piles);
     for line in yard_input.lines() { // parse the input and add the piles to the vector
-        println!("line: {}", line);
+        //println!("line: {}", line);
         for (i, c) in line.chars().enumerate() {
             if c.is_alphabetic() {
                 let pile_idx = ((i - 1) / 4) + 1; // find the pile index eg 1, 2, 3
-                //println!("pile_idx: {}", pile_idx);
+                ////println!("pile_idx: {}", pile_idx);
                 piles[pile_idx-1].push(c);
             }
         }
@@ -115,7 +115,7 @@ pub fn parse_input(input: String, version: CraneVersion) -> StackYard {
 
     for pile in &piles {
         let mut temp_pile = pile.clone();
-        println!("temp_pile: {:?}", temp_pile);
+        //println!("temp_pile: {:?}", temp_pile);
         temp_pile.reverse();
         yard.add_pile(temp_pile); 
     }
@@ -126,9 +126,9 @@ pub fn parse_input(input: String, version: CraneVersion) -> StackYard {
 pub fn run(input: String) -> (String, String) {
     let mut yard = parse_input(input.clone(), CraneVersion::V9000);
     for instruction in &yard.instructions.clone() {
-        println!("instruction: {}", instruction);
+        //println!("instruction: {}", instruction);
         let (from, to, depth) = yard.parse_instructions(instruction);
-        println!("from: {}, to: {}, depth: {}", from, to, depth);
+        //println!("from: {}, to: {}, depth: {}", from, to, depth);
         yard.move_pile(from, to, depth);
     }
     let mut yard2 = parse_input(input, CraneVersion::V9001);

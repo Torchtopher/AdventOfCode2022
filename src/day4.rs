@@ -14,11 +14,11 @@ pub fn run(input: String) -> (i128, i128) {
     let mut part2:i128 = 0;
 
     for line in input.lines() {
-        // println!("line: {}", line);
+        // //println!("line: {}", line);
         // find the 4 numbers
         let mut numbers:Vec<i128> = Vec::new();
         for number in line.split(',') {
-            //println!("number: {}", number);
+            ////println!("number: {}", number);
             number.split("-").for_each(|n| numbers.push(n.parse::<i128>().unwrap()));
         }
         if numbers.len() != 4 {
@@ -26,9 +26,9 @@ pub fn run(input: String) -> (i128, i128) {
         }
         let range1 = numbers[0]..numbers[1];
         let range2 = numbers[2]..numbers[3];
-        println!("numbers: {:?}", numbers);
-        println!("range1: {:?}", range1);
-        println!("range2: {:?}", range2);
+        //println!("numbers: {:?}", numbers);
+        //println!("range1: {:?}", range1);
+        //println!("range2: {:?}", range2);
         // check if range2 is a subset of range, probably can do in one step 
         if range_has_range(&range1, &range2) || range_has_range(&range2, &range1) {
             part1 += 1;
