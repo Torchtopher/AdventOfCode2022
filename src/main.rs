@@ -11,6 +11,7 @@ mod day7;
 mod day8;
 mod day9;
 mod day10;
+mod day11;
 use crate::day1 as d1;
 use crate::day2 as d2;
 use crate::day3 as d3;
@@ -21,6 +22,7 @@ use crate::day7 as d7;
 use crate::day8 as d8;
 use crate::day9 as d9;
 use crate::day10 as d10;
+use crate::day11 as d11;
 
 fn invalid_input(input: &String) {
     println!("Invalid argument \"{input}\", should be a day like day4");
@@ -103,6 +105,9 @@ fn main() {
                     }
                     10 => {
                         print_output(d10::run(input))
+                    }
+                    11 => {
+                        print_output(d11::run(input))
                     }
                     _ => {
                         println!("Day {} not implemented yet", n);
