@@ -50,7 +50,7 @@ impl MonkeySolver {
         for monkey_id in keys {
             let mut items_to_throw: Vec<(i64, i64)> = Vec::new();
             { // scope to drop borrow of monkey_pen
-                let mut monkey = self.monkey_pen.get_mut(&monkey_id).unwrap();
+                let monkey = self.monkey_pen.get_mut(&monkey_id).unwrap();
                 //println!("monkey_id!: {:#?}", monkey_id);
                 //println!("monkey!: {:#?}", monkey);
                 for item in &mut monkey.items {
@@ -119,7 +119,7 @@ impl MonkeySolver {
         let mut res_false: i64 = -1;
         
         // enumerate over the lines
-        let mut lines = input.lines();
+        let lines = input.lines();
         for (idx, val) in lines.enumerate() {
             println!("idx {}: val {}", idx, val);
             match idx {
@@ -226,7 +226,7 @@ pub fn run(input: String) -> (i128, i128) {
     }
     monkey_solver.set_lcm();
     // play 10000 rounds
-    for round in 0..10000 {
+    for _round in 0..10000 {
         //println!("round: {}", round);
         monkey_solver.play_round();
     }

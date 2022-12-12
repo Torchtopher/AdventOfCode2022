@@ -1,4 +1,4 @@
-use std::vec;
+
 
 // ndarray
 use ndarray::prelude::*;
@@ -19,7 +19,7 @@ pub fn run(input: String) -> (i128, i128) {
     }
     println!("Row size {}", row_size);
     println!("Col size {}", col_size);
-    let map = Array2::from_shape_vec((row_size, col_size), vecofvec).unwrap();
+    let map = Array2::from_shape_vec((81, 41), vecofvec).unwrap();
     println!("Map {:?}", map);
     (0, 0)
 

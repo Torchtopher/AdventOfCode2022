@@ -34,7 +34,7 @@ impl CPU {
         } else {
             self.sprite.x = self.x;
         }
-        self.sprite.y = ((self.cycles - 1) / 40);
+        self.sprite.y = (self.cycles - 1) / 40;
         self.draw_sprite();
     }
 

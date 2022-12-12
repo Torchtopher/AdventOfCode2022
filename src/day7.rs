@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use std::process::{exit, Command};
+use std::process::{exit};
 
 #[derive(Debug)]
 struct Directory {
@@ -93,7 +93,7 @@ impl FileSystem {
                 current_dir.add_file(name.clone(), size);
                 ////println!("Added file: {}\n{:#?}", name, current_dir.files);
             }
-            else if (lineS.contains("dir")) { 
+            else if lineS.contains("dir") { 
                 lineS = lineS.replace("dir ", "");
                 current_dir.add_subdir(lineS.to_string());
             }
@@ -124,7 +124,7 @@ impl FileSystem {
             },
             _ => {
                 // find current dir
-                let current_dir = &mut self.root;
+                let _current_dir = &mut self.root;
                 let mut current_dir = &mut self.root;
                 for dir in &self.cwd {
                     // print cwd
@@ -156,7 +156,7 @@ impl FileSystem {
             }
         }
 
-        for (name, dir) in &dir_2_loop.subdirs {
+        for (_name, dir) in &dir_2_loop.subdirs {
             ////println!("{}: {}", name, dir.size);
             if dir.size <= 100000 {
                 *size += dir.size;
@@ -176,7 +176,7 @@ impl FileSystem {
             }
         }
         
-        for (name, dir) in &dir_2_loop.subdirs {
+        for (_name, dir) in &dir_2_loop.subdirs {
             ////println!("{}: {}", name, dir.size);
             
             sizes.push(dir.size);
@@ -190,7 +190,7 @@ pub fn run(input: String) -> (i128, i128) {
     // cwd is the indexs of the subdir vec from root
     // so if cwd is [0, 1, 2] then we are in root.subdir[0].subdir[1].subdir[2]
     let mut fs = FileSystem::new();
-    let mut cmd: String = "".to_string();
+    let _cmd: String = "".to_string();
     ////println!("{:?}", fs);
 
     ////println!("input: {:?}", input);
@@ -224,13 +224,13 @@ pub fn run(input: String) -> (i128, i128) {
     }
     ////println!("\n\n");
     //println!("fs: {:#?}", fs);
-    let mut part1 = 0i128;
+    let part1 = 0i128;
     //println!("{}", fs.recurse_dirs(None, &mut part1));
     let mut sizes = Vec::new();
     fs.recurse_dirspt2(None, &mut sizes);
     //println!("sizes: {:#?}", sizes);
     // find max of sizes
-    let max = sizes.iter().max().unwrap();
+    let _max = sizes.iter().max().unwrap();
     //println!("Max of fs: {}", fs.root.size);
     let delta = (70_000_000 - fs.root.size - 30_000_000).abs();
     //println!("delta: {}", delta);

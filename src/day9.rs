@@ -15,7 +15,7 @@ struct Grid {
 impl Grid {
     fn new(len: usize) -> Grid {
         let mut tail_vec = Vec::with_capacity(len);
-        for i in 0..len {
+        for _i in 0..len {
             tail_vec.push(Point {x:0, y:0});
         }
         Grid {body:tail_vec, tail_positions: HashSet::new() }
@@ -48,10 +48,10 @@ impl Grid {
             }
         }
         
-        let mut max_x = 30;
-        let mut min_x = -30;
-        let mut max_y = 20;
-        let mut min_y = 0;
+        let max_x = 30;
+        let min_x = -30;
+        let max_y = 20;
+        let min_y = 0;
         let start = Point {x: 30, y: 10};
         // create a grid of size (max_x - min_x) * (max_y - min_y)
         let mut grid: Vec<Vec<String>> = vec![vec!['.'.to_string(); (max_x - min_x + 1) as usize]; (max_y - min_y + 1) as usize];
@@ -60,7 +60,7 @@ impl Grid {
             // basically iterate over the body backwards
             i = self.body.len() - i - 1;
             // get the row
-            let mut tmp = &mut grid[(self.body[i].y.abs()) as usize];
+            let tmp = &mut grid[(self.body[i].y.abs()) as usize];
             // handle the head
             if i != 0 {
                 tmp[(start.x + self.body[i].x) as usize] = i.to_string();
