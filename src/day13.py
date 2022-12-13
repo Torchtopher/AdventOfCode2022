@@ -73,6 +73,7 @@ for idx, val in enumerate(input):
 
 print("\n")
 print(counter)
+preinputs = inputs.copy()
 inputs.append([[2]])
 inputs.append([[6]])
 print(inputs)
@@ -85,24 +86,19 @@ def remove_padding(l):
         elif type(i) == list:
             l[l.index(i)] = remove_padding(i)
     return l
-# i heard bubble sort was easy so here it is
-while True:
-    swapped = False
-    for i in range(len(inputs) - 1):
-        if not compare(inputs[i], inputs[i + 1]):
-            test = str(inputs[i]) + str(inputs[i + 1])
-            inputs[i], inputs[i + 1] = inputs[i + 1], inputs[i]
-            swapped = True
-    if not swapped:
-        break
 
-for i in inputs:
-    print(i)
-    
-# find index of [[2]] and [[6]]
-decoder1 = inputs.index([[2]]) + 1
-decoder2 = inputs.index([[6]]) # yeah there is a case it fails and is off by 1 but i dont care enough to fix it
+decoder1 = 0
+decoder2 = 0
+for i in preinputs:
+    if compare(i, [[2]]):
+        decoder1 += 1
+
+for i in preinputs:
+    if compare(i, [[6]]):
+        decoder2 += 1
+decoder1 += 1 # index starts at 0
+decoder2 += 1 # there is a [[2]] in the list
 print(decoder1)
 print(decoder2)
-print(decoder1 * decoder2)
+
 
