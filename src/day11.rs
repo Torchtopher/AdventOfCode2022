@@ -46,9 +46,11 @@ impl MonkeySolver {
         for key in self.monkey_pen.keys().sorted() {
             keys.push(*key);
         }
+        
         // go through each monkey and let them do their thing
         for monkey_id in keys {
-            let mut items_to_throw: Vec<(i64, i64)> = Vec::new();
+
+            let mut items_to_throw: Vec<(i64, i64)> = Vec::with_capacity(10);
             { // scope to drop borrow of monkey_pen
                 let monkey = self.monkey_pen.get_mut(&monkey_id).unwrap();
                 //println!("monkey_id!: {:#?}", monkey_id);
